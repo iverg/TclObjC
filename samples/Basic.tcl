@@ -27,6 +27,11 @@ set datestr [[NSCalendarDate calendarDate] description]
 puts "Now [$datestr UTF8String] of length [$datestr length]"
 
 implementation TestClass : NSObject {
+	- (id) init {
+		puts "Init completed"
+		self
+	}
+
 	- (string) test {
 		return "[self] Test invoked"
 	}
