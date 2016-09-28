@@ -49,13 +49,13 @@ commands into global namespace.
     This command is only defined within instance or class method body and
     used to invoke another method of same object.
     Example:
-	  *   `[self setValue: 10]`
+    *   `[self setValue: 10]`
 
 -   **super**
     This command is only defined within instance or class method body and
     used to invoke super method of same object. NOT IMPLENTED YET.
     Example:
-	  *   `[super setValue: 10]`
+    *   `[super setValue: 10]`
 
 ## Types
 Currently following types are supported in method definitions:
@@ -65,46 +65,42 @@ Currently following types are supported in method definitions:
 ## Examples
 
 1.  Get list of all Foundation classes
-
-		```tcl
+    ```tcl
     info commands NS*
-		```
+    ```
 
 2.  Calling methods
-
     ```tcl
-   	set className [NSObject class]
-   	set dateString [[NSCalendarDate calendarDate] description]
-   	set dict [NSDisctionary dictionaryWithContentsOfFile: [@ dict.plist]]
-		```
+    set className [NSObject class]
+    set dateString [[NSCalendarDate calendarDate] description]
+    set dict [NSDisctionary dictionaryWithContentsOfFile: [@ dict.plist]]
+    ```
 
 3.  Defining own class
-
-	  ```tcl
+    ```tcl
     implementation MyClass {
       - (id) init {
-		    puts "Initialized"
-		    self
+        puts "Initialized"
+        self
       }
       
       - run {
-	      puts "Do something"
+        puts "Do something"
       }
-   }
-   set obj [[MyClass alloc] init]
-   $obj run
-   ```
+    }
+    set obj [[MyClass alloc] init]
+    $obj run
+    ```
 
 4.  Using Tcl callbacks
-
-		```tcl
+    ```tcl
     implementation MyDelegate : NSObject {
-	     (void) sound: snd didFinishPlaying: (inf) flag {
-		      puts "Done"
- 	     }
+       (void) sound: snd didFinishPlaying: (inf) flag {
+          puts "Done"
+       }
     }
     set snd [[NSSound alloc] initWithContentsOfFile: [@ filename.aiff] byReference: 1
     $snd setDelegate [[MyDelegate alloc] init]
-		```
+    ```
 
 See samples directory for more examples.
