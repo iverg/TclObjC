@@ -21,9 +21,9 @@ commands into global namespace.
     evaluated in the context of the class and can contain "-" and "+"
     commands to define instance and class methods.
 
--   \- *name* *body*
--   \- [*type*] *name* *body*
--   \- [*type>*] *part_of_name*: [*argument_type*] *parameter* *part_of_name*: *type* *parameter* ...? *body*
+-   **\-** *name* *body*
+-   **\-** [*type*] *name* *body*
+-   **\-** [*type*] *part_of_name*: [*argument_type*] *parameter* *part_of_name*: *type* *parameter* ...? *body*
 
     Define instance method of a class. Type defines mapping to one of
     Objective-C types (see TYPES below). Type can be omitted, assuming (void)
@@ -42,7 +42,7 @@ commands into global namespace.
      Define class method. See description of "-" command for details.
 
 -   **\@** *string*
-    Syntactic sugar for [NSString createWithUTF8String: <string>], resembles
+    Syntactic sugar for `[NSString createWithUTF8String: <string>]`, resembles
     `@"string"` syntax of Objective C.
 
 -   **self**
@@ -65,18 +65,21 @@ Currently following types are supported in method definitions:
 ## Examples
 
 1.  Get list of all Foundation classes
+
 		```tcl
     info commands NS*
 		```
 
 2.  Calling methods
-		```tcl
+
+    ```tcl
    	set className [NSObject class]
    	set dateString [[NSCalendarDate calendarDate] description]
    	set dict [NSDisctionary dictionaryWithContentsOfFile: [@ dict.plist]]
 		```
 
 3.  Defining own class
+
 	  ```tcl
     implementation MyClass {
       - (id) init {
@@ -93,6 +96,7 @@ Currently following types are supported in method definitions:
    ```
 
 4.  Using Tcl callbacks
+
 		```tcl
     implementation MyDelegate : NSObject {
 	     (void) sound: snd didFinishPlaying: (inf) flag {
