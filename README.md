@@ -65,16 +65,16 @@ Currently following types are supported in method definitions:
 ## Examples
 
 1.  Get list of all Foundation classes
-    ```tcl
+```tcl
     info commands NS*
-    ```
+```
 
 2.  Calling methods
-    ```tcl
+```tcl
     set className [NSObject class]
     set dateString [[NSCalendarDate calendarDate] description]
     set dict [NSDisctionary dictionaryWithContentsOfFile: [@ dict.plist]]
-    ```
+```
 
 3.  Defining own class
     ```tcl
